@@ -125,7 +125,7 @@ plot(timeTag, psth);
 ```matlab
 cellId = 1; % cell to plot
 meanR = mean(ephysDataset(cellId).sr_right,1); % mean PSTH of lick R trial
-sr_left
+meanL = mean(ephysDataset(cellId).sr_left,1); % mean PSTH of lick L trial
 figure
 hold on
 plot(timeTag,meanR,'b')
