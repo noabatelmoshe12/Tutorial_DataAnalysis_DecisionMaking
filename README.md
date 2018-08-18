@@ -69,21 +69,21 @@ load('ephysDataset.mat')
 ```matlab
 cell_idx = 100; % cell at 100th row of the ephysDataset
 nTrial = 2; % the second lick-right trial
-psth = ephysDataset(cell_idx).unit_yes_trial(nTrial,:);
+psth = ephysDataset(cell_idx).sr_right(nTrial,:);
 ```
 ##### Extra
 * Try the code for another trial of the same cell in correct right-lick, correct left-lick, error right-lick, and error left-lick conditions.
 
 #### Get timing of each bin for the spike counts
 ```matlab
-timetag;
+timeTag;
 ```
 
 #### Get spike times for a neuron in one of the lick-right trials
 ```matlab
 cell_idx = 1; % cell at 1st row of the ephysDataset
 nTrial = 2; % the second lick-right trial
-spkTime = ephysDataset(cell_idx).unit_yes_trial_spk_time{nTrial};
+spkTime = ephysDataset(cell_idx).st_right{nTrial};
 ```
 ##### Extra
 * Try the code for another trial of the same cell in correct right-lick, correct left-lick, error right-lick, and error left-lick conditions.
@@ -99,7 +99,7 @@ all_compiled;
 ```matlab
 cell_idx = 100; % cell at 100th row of the ephysDataset
 nTrial = 10; % the second lick-right trial
-spkTime = ephysDataset(cell_idx).unit_yes_trial_spk_time{nTrial};
+spkTime = ephysDataset(cell_idx).st_right{nTrial};
 figure;
 plot(spkTime, ones(size(spkTime)), '.');
 ```
@@ -115,7 +115,7 @@ plot_raster
 ```matlab
 cell_idx = 1; % cell at 1st row of the ephysDataset
 nTrial = 10; % the second lick-right trial
-psth = ephysDataset(cell_idx).unit_yes_trial(nTrial,:);
+psth = ephysDataset(cell_idx).sr_right(nTrial,:);
 figure;
 plot(timeTag, psth);
 ```
@@ -124,8 +124,8 @@ plot(timeTag, psth);
 * Next, plot mean peri-stimulus histogram (PSTH): average spike rates among trials using _mean_ function.
 ```matlab
 cellId = 1; % cell to plot
-meanR = mean(ephysDataset(cellId).unit_yes_trial,1); % mean PSTH of lick R trial
-meanL = mean(ephysDataset(cellId).unit_no_trial,1);  % mean PSTH of lick L trial
+meanR = mean(ephysDataset(cellId).sr_right,1); % mean PSTH of lick R trial
+sr_left
 figure
 hold on
 plot(timeTag,meanR,'b')
@@ -158,8 +158,8 @@ https://en.wikipedia.org/wiki/Fano_factor . To convert spike rate to spike count
 it with the size of the time bin (sampleRate) in the following code. For correct lick-right condition:
 ```matlab
 sampleRate = 14.84;
-meanR = mean(ephysDataset(cellId).unit_yes_trial,1)/sampleRate;
-varR  = var(ephysDataset(cellId).unit_yes_trial,1)/sampleRate^2;
+meanR = mean(ephysDataset(cellId).sr_right,1)/sampleRate;
+varR  = var(ephysDataset(cellId).sr_right,1)/sampleRate^2;
 FF_R  = varR./meanR;
 ```
 <img src='images/plot_ff.png' width='500px'></img>
@@ -189,8 +189,8 @@ plot_session_PSTH_with_selectivity
 ## Dimensionality reduction
 ### Data
 Data is in a structure array named __simDataset__ . This is a single session data. Fourteen neurons were simultaneously recorded. You need to use 2 field described below for the analysis. Ignore others.
-* unit_yes_trial : Spike rate of lick R trials in [trial, neuron, tim bin] format. There are 115 trials, 14 neurons, 77 time bin.
-* unit_no_trial  : Spike rate of lick R trials in [trial, neuron, tim bin] format. There are 94 trials, 14 neurons, 77 time bin.
+* sr_right : Spike rate of lick R trials in [trial, neuron, tim bin] format. There are 115 trials, 14 neurons, 77 time bin.
+* sr_left  : Spike rate of lick R trials in [trial, neuron, tim bin] format. There are 94 trials, 14 neurons, 77 time bin.
 
 ### Find the coding direction - CD
 * This is the direction in activity space where trial types can best be discriminated
