@@ -24,16 +24,16 @@ meanMatL = squeeze(mean(simDataset.sr_left,1));
 cdMat    = meanMatR - meanMatL; % note: this is the simplest way of computing the CD, but it has 
                                 % some issues
 
-figure;
-title('Coding direction correlation across time for Simultaneous Session')
-hold on
-imagesc(timeTag, timeTag, corr(cdMat));
-gridxy([-2.6 -1.3 0],[-2.6 -1.3 0],'Color','k','Linestyle','--') ;
-xlim([-3.0  1.5]);
-ylim([-3.0  1.5]);
-xlabel('Time from movement (sec)')
-ylabel('Time from movement (sec)')
-hold off
+% figure;
+% title('Coding direction correlation across time for Simultaneous Session')
+% hold on
+% imagesc(timeTag, timeTag, corr(cdMat));
+% gridxy([-2.6 -1.3 0],[-2.6 -1.3 0],'Color','k','Linestyle','--') ;
+% xlim([-3.0  1.5]);
+% ylim([-3.0  1.5]);
+% xlabel('Time from movement (sec)')
+% ylabel('Time from movement (sec)')
+% hold off
 
 
 %% projection of data to delay-epoch coding direction 

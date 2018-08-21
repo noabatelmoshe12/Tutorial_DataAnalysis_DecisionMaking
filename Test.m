@@ -1,15 +1,12 @@
 clear all
 load('ephysDataset.mat')
 cell_idx = 100; % cell at 100th row of the ephysDataset array
-    seesionInfo = ephysDataset(cell_idx).sessionIndex;
-    unitInfo = ephysDataset(cell_idx).nUnit;
-    
-ell_idx = 100; % cell at 100th row of the ephysDataset
+seesionInfo = ephysDataset(cell_idx).sessionIndex;
+unitInfo = ephysDataset(cell_idx).nUnit;
+
+cell_idx = 100; % cell at 100th row of the ephysDataset
 nTrial = 2; % the second lick-right trial
 psth = ephysDataset(cell_idx).sr_right(nTrial,:);
-
-
-
 
 
 cell_idx = 1; % cell at 1st row of the ephysDataset

@@ -47,9 +47,9 @@ plot_session_PSTH_with_selectivity
 
 plot_CD_sim
 
-%%
-% 9. dPCA is another dimensionality reduction method with different
-% properties.
-% optional
-
-plot_dpca
+% %%
+% % 9. dPCA is another dimensionality reduction method with different
+% % properties.
+% % optional
+% 
+% plot_dpca

@@ -46,7 +46,7 @@ This repo contains data from 5 recording sessions. Each session contains hundred
 
 * depth_in_um: recording depth of the unit in um. We don't use this info here.
 * cell_type  : putative pyramidal cells -- 1; fast-spiking interneurons: 0.
-* __timetag__    : timing of each bin (67 ms discrete time bins).
+* __timeTag__    : timing of each bin (67 ms discrete time bins).
 * __simDataset__ : Dataset for "Dimensionality reduction". See "Dimensionality reduction" for detail.
 
 ## Data access
@@ -203,10 +203,6 @@ where sr_R is spike rate in lick-right trials, sr_L is spike rate in lick-left t
 Calculate this vector for each time point, then normalize (divide by norm) to produce a unit vector.
 
 
-* Explore correlation of coding direction across time
-
-<img src='images/plot_coding_direction_correlation.png' width='500px'></img>
-
 * Explore neural activity projected to coding direction
 * To project population activity to CD, calculate inner dot: sr_R * CD.
 
@@ -222,14 +218,3 @@ Calculate this vector for each time point, then normalize (divide by norm) to pr
 ```matlab
 plot_CD_sim
 ```
-
-### Extra - dPCA: download code from Machens website
-* https://github.com/machenslab/dPCA
-* Copy functions __dpca_explainedVariance__, __dpca_marginalize__ and __dpca__ to the current folder
-
-```matlab
-plot_dpca
-```
-<img src='images/plot_dpca.png' width='500px'></img>
-
-* Related reference: D Kobak, W Brendel, C Constantinidis, CE Feierstein, A Kepecs, ZF Mainen, X-L Qi, R Romo, N Uchida, CK Machens (eLife 2016) https://elifesciences.org/content/5/e10989

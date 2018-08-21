@@ -43,17 +43,17 @@ for cellID = 1:numUnit
     srDelayR    = mean(sessionData(cellID).sr_right(:,delayTimbin),2); % spike rate during delay lick R trial
     srDelayL    = mean(sessionData(cellID).sr_left(:,delayTimbin),2);  % spike rate during delay lick L trial
     
-    % ranksum test to check if spike rates are significantly different between two trial types
-    p = ranksum(srDelayR,srDelayL);
+%     % ranksum test to check if spike rates are significantly different between two trial types
+%     p = ranksum(srDelayR,srDelayL);
     
     % if spike rates are significantly different calcualte selectivity
     % reverse the direction if slectivity is negative
     % non selective trials are kept as nan
-    if     p < 0.05 && mean(srDelayR) > mean(srDelayL)
+    if      mean(srDelayR) > mean(srDelayL)
         
         selectivity(cellID,:) = meanR(cellID,:) - meanL(cellID,:);
         
-    elseif p < 0.05 && mean(srDelayR) < mean(srDelayL)
+    elseif  mean(srDelayR) < mean(srDelayL)
         
         selectivity(cellID,:) = meanL(cellID,:) - meanR(cellID,:); 
         
@@ -76,7 +76,7 @@ hold off
 %% plot the selectivity
 figure
 hold on
-plot(timeTag,nanmean(selectivity),'k') % mean selectivty  among cells
+plot(timeTag,mean(selectivity),'k') % mean selectivty  among cells
 gridxy([-2.6 -1.3 0],'Color','k','Linestyle','--') ;
 xlim([-3  1.5]);
 xlabel('Time (s)')
