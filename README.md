@@ -1,5 +1,5 @@
 # Exploring extracellular electrophysiology data
-Tutorial on Data Analysis of electrophysiological data recorded during a decison-making task.
+Tutorial on Data Analysis of neural recordings during a decison-making task.
 
 The goal is to analyze extracellular electrophysiology data acquired in a delayed-response task. This set of exercises is for Matlab.
 * See "Dataset description" for the structure of the data, including behavior and electrophysiology.
@@ -10,13 +10,13 @@ The goal is to analyze extracellular electrophysiology data acquired in a delaye
 
 ## Dataset Description
 ### Task description:
-The data set was acquired in mice performing a "delayed response task". Recordings were made in the premotor cortex using 64ch silicon probes (for more information see Finkelstein*,Fontolan* et al Nature Neuroscience 2021; included in the repository).
-* An optogenetic stimulation was delivered to the left somatosensory cortex during a "sample epoch". The presence or absence of stimulation instructs the animal which target to choose (lick left or lick right). The presence of stimulation instructs the animal to lick right, whereas the absence of stimulation instructs to lick left. Because recordings were made in the left hemisphere, left and right are referred to as ipsi and contra directions.
+The data set was acquired in mice performing a "delayed response task". Recordings were made in the motor cortex using 64ch silicon probes (for more information see for more information see Guo*, Li* et al 2014 Neuron; Li* Daie* et al 2016 Nature; Finkelstein*,Fontolan* et al Nature Neuroscience 2021; included in the repository).
+
+* An object was presented to the whiskers during a "sample epoch". The location of the object instructs the animal which direction to move (lick left or lick right). Because recordings were made in the left hemisphere, left and right are referred to as ipsi and contra directions.
 * The sample epoch was followed by a "delay epoch", during which the mouse has to maintain a memory of future licking direction.
 * At the end of the delay epoch, and signaling the beginning of a "response poch", a brief "go cue" (100ms)instructs the animal to move.
 * When the animal licks in the correct direction it receives water reward (correct trials). Licking in the wrong direction results in reward omission (error trials).
 * Neurons in motor cortex (anterior lateral motor cortex -- ALM) show preparatory activity during the delay epoch. Preparatory activity is the neural correlate of motor planning. Preparatory activity correlates with movements, sometimes long before the movements occur. Let's analyze preparatory activity both at the single neuron and population level.
-Neurons in the sensory cortex (vibrissal somatosensory cortex -- vS1) are expected to carry information about the stimulus.
 
 ![task](images/task.png)
 
